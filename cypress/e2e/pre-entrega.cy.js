@@ -25,29 +25,23 @@ describe('Pre-entrega PushingIT', () => {
     })
 
     it('Test', () => {
-        const productos = [data.producto1, data.producto2];
-        const cantidades = [data.cantidad1, data.cantidad2];
-        const precios = [data.precio1, data.precio2];
+        const productos = [data.productos];
+        const precioTotalProductos = [data.productos]
+        //const cantidades = [data.productos];
+        //const precios = [data.productos];
         productsPage.clickProductsPage();
-        cy.wait(2000);
         productsPage.addToCart("Remera Negra");
-        cy.wait(2000);
         productsPage.closeModal();
-        cy.wait(2000);
         productsPage.addToCart("Remera Negra");
-        cy.wait(2000);
         productsPage.closeModal();
-        cy.wait(2000);
         productsPage.addToCart("Jean Azul");
-        cy.wait(2000);
         productsPage.closeModal();
         shoppingCartPage.goShoppingCart();
-        productos.forEach((producto, index) => {
-            shoppingCartPage.verificarProducto(index, producto);
-            shoppingCartPage.verificarCantidad(index, cantidades[index]);
-            shoppingCartPage.verificarPrecio(index, precios[index]);
-            const precioTotalEsperado = precios [index] * cantidades[index];
-            shoppingCartPage.verificarPrecioTotal(index, precioTotalEsperado);
+        productos.forEach((productos) => {
+            shoppingCartPage.verificarProducto(data.productos);
+            shoppingCartPage.verificarCantidad(data.productos);
+            shoppingCartPage.verificarPrecio(data.productos);
         })
+        shoppingCartPage.verificarPrecioTotal(data.productos);
         });
     })

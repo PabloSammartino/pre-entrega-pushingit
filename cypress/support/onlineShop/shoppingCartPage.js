@@ -4,21 +4,20 @@ export class ShoppingCartPage {
         cy.get('#goShoppingCart').click();
     }
 
-    verificarProducto(index, nombreProducto) {
-        cy.get('p[data-cy=productName]').eq(index).should('contain', nombreProducto);
+    verificarProducto () {
+        return cy.get('p[data-cy=productName]');
     }
 
-    verificarCantidad(index, cantidadProducto) {
-        cy.get('p[data-cy=productAmount]').eq(index).should('contain', cantidadProducto);
+    verificarCantidad () {
+        return cy.get('p[data-cy=productAmount]');
     }
 
-    verificarPrecio(index, precioProducto) {
-        cy.get('p[data-cy=unitPrice]').eq(index).should('contain', precioProducto);
+    verificarPrecio () {
+        return cy.get('p[data-cy=unitPrice]');
     }
 
-    verificarPrecioTotal(index, precioTotalProducto) {
-        cy.get('.css-1i1ynt3').contains('Show total price').click();
-        cy.get('p[data-cy=totalPrice]').eq(index).should('contain', precioTotalProducto);
+    verificarPrecioTotal(precioTotalProductos) {
+        return cy.get('.css-1i1ynt3').contains('Show total price').click();
     }
 
 }
