@@ -25,23 +25,19 @@ describe('Pre-entrega PushingIT', () => {
     })
 
     it('Test', () => {
-        const productos = [data.productos];
-        const precioTotalProductos = [data.productos]
-        //const cantidades = [data.productos];
-        //const precios = [data.productos];
         productsPage.clickProductsPage();
         productsPage.addToCart("Remera Negra");
         productsPage.closeModal();
         productsPage.addToCart("Remera Negra");
         productsPage.closeModal();
-        productsPage.addToCart("Jean Azul");
+        productsPage.addToCart("Chomba Amarilla");
         productsPage.closeModal();
-        shoppingCartPage.goShoppingCart();
-        productos.forEach((productos) => {
-            shoppingCartPage.verificarProducto(data.productos);
-            shoppingCartPage.verificarCantidad(data.productos);
-            shoppingCartPage.verificarPrecio(data.productos);
-        })
-        shoppingCartPage.verificarPrecioTotal(data.productos);
+        shoppingCartPage.goShoppingCart(data);
+        shoppingCartPage.verificarProducto("Remera Negra");
+        shoppingCartPage.verificarProducto("Chomba Amarilla");
+        shoppingCartPage.verificarCantidad(data.productos[0].cantidad);
+        shoppingCartPage.verificarCantidad(data.productos[1].cantidad);
+        shoppingCartPage.verificarPrecioUnitario(data.productos.precioUnitario);
+        shoppingCartPage.verificarPrecioTotal();
         });
     })

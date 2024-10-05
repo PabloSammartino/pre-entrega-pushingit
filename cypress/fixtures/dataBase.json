@@ -6,12 +6,9 @@
             "precioUnitario": 7.12 
         },
         {
-            "name": "Jean Azul",
+            "name": "Chomba Amarilla",
             "cantidad": 1,
-            "precioUnitario": 11.98
-        },
-        {
-            "precioTotalProductos": 26.22
+            "precioUnitario": 18.33
         }
     ]
 }
