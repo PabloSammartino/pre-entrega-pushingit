@@ -54,5 +54,7 @@ describe('Pre-entrega PushingIT', () => {
         checkoutPage.verificarProducto1(data.productos[0].name);
         checkoutPage.verificarProducto2(data.productos[1].name);
         checkoutPage.verificarPrecioTotal(data.totalPrice);
+        checkoutPage.thankYouButton();
+        cy.deleteUser();
         });
     })

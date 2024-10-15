@@ -47,4 +47,8 @@ export class CheckoutPage {
     verificarPrecioTotal(totalPrice){
         return cy.get('#totalPrice').should('contain.text', `${totalPrice}`)
     }
+
+    thankYouButton(){
+        cy.get('[data-cy="thankYou"]').click();
+    }
 }
