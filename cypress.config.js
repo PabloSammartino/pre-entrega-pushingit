@@ -9,6 +9,8 @@ module.exports = defineConfig({
   },
   env: {
     username: "pushingit",
-    password: "123456!"
+    password: "123456!",
+    baseApiUrl: "https://pushing-it-3.onrender.com",
+    token: null
   }
 });

@@ -10,5 +10,11 @@
             "cantidad": 1,
             "precioUnitario": 18.33
         }
-    ]
+    ],
+
+    "checkOut": {
+        "firstName": "Pablo",
+        "lastName": "Sammartino",
+        "cardNumber": "1234567891234567"
+    }
 }

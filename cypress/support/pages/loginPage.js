@@ -1,14 +1,14 @@
 export class LoginPage {
 
-    escribirUsuario(usuario){
+    escribirUsuario(){
         return cy.get('#user');
     }
 
-    escribirContraseña(password){
+    escribirContraseña(){
         return cy.get('#pass');
     }
 
-    submitFormButton(submitFormButton){
+    submitFormButton(){
         cy.get('#submitForm').click();
     }
     
