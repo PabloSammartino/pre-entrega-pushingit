@@ -1,13 +1,4 @@
 import { CheckoutPage } from "../support/pages/checkoutPage"
-/* const checkoutPage = new CheckoutPage(); */
-
-/* Cypress.Commands.add('completarCheckout', (nombre, apellido, tarjeta) => {
-    checkoutPage.escribirNombre(nombre);
-    checkoutPage.escribirApellido(apellido);
-    checkoutPage.escribirNumeroTarjeta(tarjeta);
-}) */
-
-
 
 Cypress.Commands.add('loginWithAPI', (username, password) => {
     cy.request({
@@ -24,4 +15,17 @@ Cypress.Commands.add('loginWithAPI', (username, password) => {
         window.localStorage.setItem('token', response.body.token);
         window.localStorage.setItem('user', response.body.user);
     })
+})
+
+Cypress.Commands.add('deleteUser', () =>{
+    cy.request({
+        method: "DELETE",
+        url: 'https://pushing-it-3.onrender.com/api/deleteuser/pushingit',
+        headers: {
+            authorization: `Bearer ${Cypress.env().token}`
+        },
+    }).then(response => {
+        expect(response.status).to.eq(202);
+        expect(response).to.have.property('statusText', 'Accepted');
+    });
 })
